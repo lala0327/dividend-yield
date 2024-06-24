@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 function App() {
   const [isError, setIsError] = useState(false)
     // 股價// 股息// 殖利率
-  const [answer, setAnswer] = useState(0)
+  const [answer, setAnswer] = useState('')
   const [anserText, setAnserText] = useState("")
 
   {/* 
@@ -43,12 +43,13 @@ function App() {
         ans = B*100/A
         setAnserText('殖利率')
       }
-      setAnswer(parseInt(ans.toFixed(2)))
+      setAnswer(ans.toFixed(2))
     }else{
       setIsError(true)
-      setAnswer(0)
+      setAnswer('')
       setAnserText("")
     }
+    console.log([(document.getElementById('sharePrice') as HTMLInputElement).value,(document.getElementById('dividends') as HTMLInputElement).value,(document.getElementById('dividendsYield') as HTMLInputElement).value])
   }
   return (
     <>
