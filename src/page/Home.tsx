@@ -25,7 +25,7 @@ function Home() {
           }
         </div>  
       </div>
-      <p style={{position:'absolute',left:'10px',bottom:'10px'}}>v1.0.2</p>
+      <p style={{position:'absolute',left:'10px',bottom:'10px'}}>v1.0.3</p>
     </>
   )
 }

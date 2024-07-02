@@ -26,7 +26,7 @@ function GoldenSection() {
       setRows([
         { goldenSection:0.191, reboundPressure:parseFloat((price*(1+0.191)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.191)).toFixed(2))  },
         { goldenSection:0.382, reboundPressure:parseFloat((price*(1+0.382)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.382)).toFixed(2))  },
-        { goldenSection:0.050, reboundPressure:parseFloat((price*(1+0.050)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.050)).toFixed(2))  },
+        { goldenSection:0.500, reboundPressure:parseFloat((price*(1+0.500)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.500)).toFixed(2))  },
         { goldenSection:0.618, reboundPressure:parseFloat((price*(1+0.618)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.618)).toFixed(2))  },
         { goldenSection:0.809, reboundPressure:parseFloat((price*(1+0.809)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.809)).toFixed(2))  },
       ])
@@ -37,7 +37,7 @@ function GoldenSection() {
       setRows([
         { goldenSection:0.191, reboundPressure:parseFloat((price*(1+0.191)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.191)).toFixed(2))  },
         { goldenSection:0.382, reboundPressure:parseFloat((price*(1+0.382)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.382)).toFixed(2))  },
-        { goldenSection:0.050, reboundPressure:parseFloat((price*(1+0.050)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.050)).toFixed(2))  },
+        { goldenSection:0.500, reboundPressure:parseFloat((price*(1+0.500)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.500)).toFixed(2))  },
         { goldenSection:0.618, reboundPressure:parseFloat((price*(1+0.618)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.618)).toFixed(2))  },
         { goldenSection:0.809, reboundPressure:parseFloat((price*(1+0.809)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.809)).toFixed(2))  },
       ])
