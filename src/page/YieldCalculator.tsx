@@ -33,7 +33,6 @@ function YieldCalculator() {
     });
 
     if(num.length === 2){
-      console.log((dividends*100/sharePrice).toFixed(2))
       setIsError(false)
       if(!!sharePrice === false){
         setAnswer((dividends*100/dividendsYield).toFixed(2))
@@ -49,16 +48,16 @@ function YieldCalculator() {
 
         setAnotherData(true)
         setRows([
-          { dividendsYield:2.5, dividends:parseInt((sharePrice*2.5/100).toFixed(2)), sharePrice },
-          { dividendsYield:3, dividends:parseInt((sharePrice*3/100).toFixed(2)), sharePrice },
-          { dividendsYield:3.5, dividends:parseInt((sharePrice*3.5/100).toFixed(2)), sharePrice },
-          { dividendsYield:4, dividends:parseInt((sharePrice*4/100).toFixed(2)), sharePrice },
-          { dividendsYield:4.5, dividends:parseInt((sharePrice*4.5/100).toFixed(2)), sharePrice },
-          { dividendsYield:5, dividends:parseInt((sharePrice*5/100).toFixed(2)), sharePrice },
-          { dividendsYield:5.5, dividends:parseInt((sharePrice*5.5/100).toFixed(2)), sharePrice },
-          { dividendsYield:6, dividends:parseInt((sharePrice*6/100).toFixed(2)), sharePrice },
-          { dividendsYield:6.5, dividends:parseInt((sharePrice*6.5/100).toFixed(2)), sharePrice },
-          { dividendsYield:7, dividends:parseInt((sharePrice*7/100).toFixed(2)), sharePrice },
+          { dividendsYield:2.5, dividends:parseFloat((sharePrice*2.5/100).toFixed(2)), sharePrice },
+          { dividendsYield:3, dividends:parseFloat((sharePrice*3/100).toFixed(2)), sharePrice },
+          { dividendsYield:3.5, dividends:parseFloat((sharePrice*3.5/100).toFixed(2)), sharePrice },
+          { dividendsYield:4, dividends:parseFloat((sharePrice*4/100).toFixed(2)), sharePrice },
+          { dividendsYield:4.5, dividends:parseFloat((sharePrice*4.5/100).toFixed(2)), sharePrice },
+          { dividendsYield:5, dividends:parseFloat((sharePrice*5/100).toFixed(2)), sharePrice },
+          { dividendsYield:5.5, dividends:parseFloat((sharePrice*5.5/100).toFixed(2)), sharePrice },
+          { dividendsYield:6, dividends:parseFloat((sharePrice*6/100).toFixed(2)), sharePrice },
+          { dividendsYield:6.5, dividends:parseFloat((sharePrice*6.5/100).toFixed(2)), sharePrice },
+          { dividendsYield:7, dividends:parseFloat((sharePrice*7/100).toFixed(2)), sharePrice },
         ])
       }
       if(!!dividendsYield === false){
@@ -67,16 +66,16 @@ function YieldCalculator() {
 
         setAnotherData(true)
         setRows([
-          { dividendsYield:2.5, dividends, sharePrice:parseInt((dividends*100/2.5).toFixed(2)) },
-          { dividendsYield:3, dividends, sharePrice:parseInt((dividends*100/3).toFixed(2)) },
-          { dividendsYield:3.5, dividends, sharePrice:parseInt((dividends*100/3.5).toFixed(2)) },
-          { dividendsYield:4, dividends, sharePrice:parseInt((dividends*100/4).toFixed(2)) },
-          { dividendsYield:4.5, dividends, sharePrice:parseInt((dividends*100/4.5).toFixed(2)) },
-          { dividendsYield:5, dividends, sharePrice:parseInt((dividends*100/5).toFixed(2)) },
-          { dividendsYield:5.5, dividends, sharePrice:parseInt((dividends*100/5.5).toFixed(2)) },
-          { dividendsYield:6, dividends, sharePrice:parseInt((dividends*100/6).toFixed(2)) },
-          { dividendsYield:6.5, dividends, sharePrice:parseInt((dividends*100/6.5).toFixed(2)) },
-          { dividendsYield:7, dividends, sharePrice:parseInt((dividends*100/7).toFixed(2)) },
+          { dividendsYield:2.5, dividends, sharePrice:parseFloat((dividends*100/2.5).toFixed(2)) },
+          { dividendsYield:3, dividends, sharePrice:parseFloat((dividends*100/3).toFixed(2)) },
+          { dividendsYield:3.5, dividends, sharePrice:parseFloat((dividends*100/3.5).toFixed(2)) },
+          { dividendsYield:4, dividends, sharePrice:parseFloat((dividends*100/4).toFixed(2)) },
+          { dividendsYield:4.5, dividends, sharePrice:parseFloat((dividends*100/4.5).toFixed(2)) },
+          { dividendsYield:5, dividends, sharePrice:parseFloat((dividends*100/5).toFixed(2)) },
+          { dividendsYield:5.5, dividends, sharePrice:parseFloat((dividends*100/5.5).toFixed(2)) },
+          { dividendsYield:6, dividends, sharePrice:parseFloat((dividends*100/6).toFixed(2)) },
+          { dividendsYield:6.5, dividends, sharePrice:parseFloat((dividends*100/6.5).toFixed(2)) },
+          { dividendsYield:7, dividends, sharePrice:parseFloat((dividends*100/7).toFixed(2)) },
         ])
       }
     }else{
