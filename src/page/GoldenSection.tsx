@@ -34,6 +34,7 @@ function GoldenSection() {
     else if(num.length === 1 && !!c){
       setIsError(false)
       price = parseFloat((document.getElementById('c') as HTMLInputElement).value)
+      setAnotherData(true)
       setRows([
         { goldenSection:0.191, reboundPressure:parseFloat((price*(1+0.191)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.191)).toFixed(2))  },
         { goldenSection:0.382, reboundPressure:parseFloat((price*(1+0.382)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.382)).toFixed(2))  },
