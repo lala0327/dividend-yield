@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       <div style={{width:'100%',height:'100%', display:'flex',justifyContent:'center',alignItems:'center', flexDirection:'column'}}>
-        <div style={{width:'80%', height:'100%', padding:'20px 0px', maxWidth: '450px', display:'flex',justifyContent:'center',alignItems:'center', flexDirection:'column'}}>
+        <div style={{width:'90%', height:'100%', padding:'20px 0px', maxWidth: '450px', display:'flex',justifyContent:'center',alignItems:'center', flexDirection:'column'}}>
           {
             listButtonArray.map(({id, name})=>{
               return (
@@ -25,7 +25,7 @@ function Home() {
           }
         </div>  
       </div>
-      <p style={{position:'absolute',left:'10px',bottom:'10px'}}>v1.0.3</p>
+      <p style={{position:'absolute',left:'10px',bottom:'10px'}}>v1.0.4</p>
     </>
   )
 }

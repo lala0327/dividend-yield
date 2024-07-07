@@ -4,16 +4,19 @@ interface GoldenSection {
   goldenSection:number,
   reboundPressure:number,
   retracementPressure:number
+  bandRetracementPressure?:number
 }
 function GoldenSection() {
   const [isError, setIsError] = useState(false)
   const [anotherData, setAnotherData] = useState(false)
   const [rows, setRows]= useState<GoldenSection[]>([])
-
-  const calculate = () => {
+  const goldenSectionArray = [0.191, 0.382, 0.500, 0.618, 0.809]
+  let arr:GoldenSection[] = []
+  
+  const calculate = () => {  
     const a = parseFloat((document.getElementById('a') as HTMLInputElement).value)
     const b = parseFloat((document.getElementById('b') as HTMLInputElement).value)
-    const c = parseFloat((document.getElementById('c') as HTMLInputElement).value)
+    const c = parseFloat((document.getElementById('c') as HTMLInputElement).value) 
     let price = 0
     const num = [!!a, !!b, !!c].filter(function(value) {
       return value === true;
@@ -23,25 +26,19 @@ function GoldenSection() {
       setAnotherData(true)
       price = parseFloat((document.getElementById('a') as HTMLInputElement).value)-parseFloat((document.getElementById('b') as HTMLInputElement).value);
       (document.getElementById('c') as HTMLInputElement).value = price.toString();
-      setRows([
-        { goldenSection:0.191, reboundPressure:parseFloat((price*(1+0.191)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.191)).toFixed(2))  },
-        { goldenSection:0.382, reboundPressure:parseFloat((price*(1+0.382)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.382)).toFixed(2))  },
-        { goldenSection:0.500, reboundPressure:parseFloat((price*(1+0.500)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.500)).toFixed(2))  },
-        { goldenSection:0.618, reboundPressure:parseFloat((price*(1+0.618)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.618)).toFixed(2))  },
-        { goldenSection:0.809, reboundPressure:parseFloat((price*(1+0.809)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.809)).toFixed(2))  },
-      ])
+      goldenSectionArray.map((value)=>{
+        arr.push({goldenSection:value, reboundPressure:parseFloat((price*(1+value)).toFixed(2)), retracementPressure: parseFloat((price*(1-value)).toFixed(2)),bandRetracementPressure:parseFloat((a-(price*value)).toFixed(2))})
+      })
+      setRows(arr)
     }
     else if(num.length === 1 && !!c){
       setIsError(false)
       price = parseFloat((document.getElementById('c') as HTMLInputElement).value)
       setAnotherData(true)
-      setRows([
-        { goldenSection:0.191, reboundPressure:parseFloat((price*(1+0.191)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.191)).toFixed(2))  },
-        { goldenSection:0.382, reboundPressure:parseFloat((price*(1+0.382)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.382)).toFixed(2))  },
-        { goldenSection:0.500, reboundPressure:parseFloat((price*(1+0.500)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.500)).toFixed(2))  },
-        { goldenSection:0.618, reboundPressure:parseFloat((price*(1+0.618)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.618)).toFixed(2))  },
-        { goldenSection:0.809, reboundPressure:parseFloat((price*(1+0.809)).toFixed(2)), retracementPressure:parseFloat((price*(1-0.809)).toFixed(2))  },
-      ])
+      goldenSectionArray.map((value)=>{
+        arr.push({goldenSection:value, reboundPressure:parseFloat((price*(1+value)).toFixed(2)), retracementPressure: parseFloat((price*(1-value)).toFixed(2))})
+      })
+      setRows(arr)
     }
     else{
       setIsError(true)
@@ -49,7 +46,7 @@ function GoldenSection() {
   }
   return (
     <div style={{width:'100%', display:'flex',justifyContent:'center', overflowY:'auto'}}>
-      <div style={{width:'80%', height:'auto', padding:'20px 0px', maxWidth: '450px'}}>
+      <div style={{width:'90%', height:'auto', padding:'20px 0px', maxWidth: '450px'}}>
       <p style={{textAlign:'start'}}>請輸入 <span style={{color:'#d32f2f', fontWeight:'700' }}>高點與低點</span> 或是直接輸入 <span style={{color:'#d32f2f', fontWeight:'700' }}>等號後參數</span> 並點擊'<span style={{ fontWeight:'700' }}>計算結果</span>'即可計算出黃金分割率</p>
         <div style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center'}}>
           <TextField id='a' key='a' error={isError} type="number" label='高點' variant="outlined" sx={{width:'100%',margin:'10px 0px'}}/>
@@ -66,8 +63,10 @@ function GoldenSection() {
               <TableHead>
                 <TableRow>
                   <TableCell sx={{fontWeight:700, padding:"10px", backgroundColor:'#1976d2', color:'white'}}>黃金分割率</TableCell>
-                  <TableCell sx={{fontWeight:700, padding:"10px", backgroundColor:'#1976d2', color:'white'}} align="center">反彈壓力</TableCell>
-                  <TableCell sx={{fontWeight:700, padding:"10px", backgroundColor:'#1976d2', color:'white'}} align="center">回檔壓力</TableCell>
+                  <TableCell sx={{fontWeight:700, padding:"10px", backgroundColor:'#1976d2', color:'white'}} align="center">低點反彈壓力</TableCell>
+                  <TableCell sx={{fontWeight:700, padding:"10px", backgroundColor:'#1976d2', color:'white'}} align="center">高點回檔壓力</TableCell>
+                  {(!!parseFloat((document.getElementById('a') as HTMLInputElement).value) && !!parseFloat((document.getElementById('b') as HTMLInputElement).value)) ?
+                    <TableCell sx={{fontWeight:700, padding:"10px", backgroundColor:'#1976d2', color:'white'}} align="center">波段回檔壓力</TableCell>:null}
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -79,6 +78,8 @@ function GoldenSection() {
                     <TableCell component="th" scope="row" sx={{padding:"10px"}}>{row.goldenSection}</TableCell>
                     <TableCell align="center" sx={{padding:"10px"}}>{row.reboundPressure}</TableCell>
                     <TableCell align="center" sx={{padding:"10px"}}>{row.retracementPressure}</TableCell>
+                    {(!!parseFloat((document.getElementById('a') as HTMLInputElement).value) && !!parseFloat((document.getElementById('b') as HTMLInputElement).value)) ?
+                      <TableCell align="center" sx={{padding:"10px"}}>{row.bandRetracementPressure}</TableCell>:null}
                   </TableRow>
                 ))}
               </TableBody>

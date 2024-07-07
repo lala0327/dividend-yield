@@ -94,7 +94,7 @@ function YieldCalculator() {
   ]
   return (
     <div style={{width:'100%', display:'flex',justifyContent:'center', overflowY:'auto'}}>
-      <div style={{width:'80%', height:'auto', padding:'20px 0px', maxWidth: '450px'}}>
+      <div style={{width:'90%', height:'auto', padding:'20px 0px', maxWidth: '450px'}}>
         <p style={{textAlign:'start'}}>請輸入隨機 <span style={{color:'#d32f2f', fontWeight:'700' }}>兩格</span> 輸入框內容，即可計算出另一參數值</p>
         <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',width:'100%'}}>
           { listButtonArray.map(({id, label})=>{
