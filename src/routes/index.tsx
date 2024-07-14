@@ -3,25 +3,33 @@ import YieldCalculator from "../page/YieldCalculator"
 import GoldenSection from "../page/GoldenSection"
 import { useRoutes } from "react-router-dom"
 import { Login } from "@mui/icons-material"
+import MainPage from "../page/MainPage"
 
 const AllRoutes = () => {
   return useRoutes([
-    {
+    { 
       path: '/',
-      element: <Login />,
+      element: <MainPage />,
+      // children:[
+      //   {
+      //     path: '/login',
+      //     element: <Login />,
+      //   },
+      //   {
+      //     path: '/home',
+      //     element: <Home />,
+      //   },
+      //   {
+      //     path: '/yieldCalculator',
+      //     element: <YieldCalculator />,
+      //   },
+      //   {
+      //     path: '/goldenSection',
+      //     element: <GoldenSection />,
+      //   },
+      // ]
     },
-    {
-      path: '/home',
-      element: <Home />,
-    },
-    {
-      path: '/yieldCalculator',
-      element: <YieldCalculator />,
-    },
-    {
-      path: '/goldenSection',
-      element: <GoldenSection />,
-    },
+   
   ])
 }
 
