@@ -1,8 +1,8 @@
-import Home from "../page/Home"
-import YieldCalculator from "../page/YieldCalculator"
-import GoldenSection from "../page/GoldenSection"
+// import Home from "../page/Home"
+// import YieldCalculator from "../page/YieldCalculator"
+// import GoldenSection from "../page/GoldenSection"
 import { useRoutes } from "react-router-dom"
-import { Login } from "@mui/icons-material"
+// import { Login } from "@mui/icons-material"
 import MainPage from "../page/MainPage"
 
 const AllRoutes = () => {

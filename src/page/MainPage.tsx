@@ -1,5 +1,5 @@
-import DrawerCompoment from "../compoment/DrawerCompoment"
-import { Route, useLocation } from 'react-router-dom';
+// import DrawerCompoment from "../compoment/DrawerCompoment"
+import { useLocation } from 'react-router-dom';
 
 function MainPage() {
   const location = useLocation()
